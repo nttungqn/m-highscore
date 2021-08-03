@@ -39,7 +39,7 @@ func (g *Grpc) ListenAndServe() error {
 	}
 	
 	serverOpts := []grpc.ServerOption{}
-	g.server = grpc.NewServer(serverOpts)
+	g.server = grpc.NewServer(serverOpts...)
 	
 	pbhighscore.RegisterGameServer(g.server, g)
 	log.Info().Str("address", g.address).Msg("Starting from m-highscore service")
